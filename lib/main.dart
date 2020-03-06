@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
        
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter Demo HomePage2'),
     );
   }
 }
@@ -41,7 +41,6 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
        
         child: Column(
-        
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(

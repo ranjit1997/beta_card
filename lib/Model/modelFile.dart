@@ -1,0 +1,1 @@
+//This file contain model class created for an application.

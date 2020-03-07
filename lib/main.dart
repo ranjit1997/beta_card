@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Welcome to Flutter framework',
+              'Welcome to Flutter Framework',
             ),
           ],
           ),

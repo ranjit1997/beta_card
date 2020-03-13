@@ -1,11 +1,19 @@
 
+import 'package:beta_card/Authentication.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+ // MyHomePage({Key key, this.title}) : super(key: key);
+ //final String title;
 
-  
-  final String title;
+ MyHomePage
+ ({
+   this.auth,
+   this.onSignedOut
+ });
+
+ final AuthImplementation auth;
+ final VoidCallback onSignedOut;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -13,9 +21,17 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   
-  void _LogOutUser()
+  void logOutUser() async
   {
-
+     try
+     {
+      await widget.auth.signOut();
+      widget.onSignedOut;
+     }
+     catch(e)
+     {
+        print("Error:"+e.toString());
+     }
   }
 
   @override
@@ -49,7 +65,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       icon: Icon(Icons.local_car_wash),
                       iconSize: 40,
                       color: Colors.white, 
-                      onPressed: _LogOutUser,
+                      onPressed:()=> logOutUser(),
+                      ),
+
+                    IconButton(
+                      icon: Icon(Icons.photo_camera),
+                      iconSize: 40,
+                      color: Colors.white, 
+                      onPressed:null,
                       ),
 
                     IconButton(

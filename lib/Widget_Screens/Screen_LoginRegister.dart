@@ -1,7 +1,22 @@
+
 import 'package:flutter/material.dart';
+import 'package:beta_card/Authentication.dart';
 
-class LoginRegisterPage extends StatefulWidget{
 
+
+class LoginRegisterPage extends StatefulWidget
+{
+   LoginRegisterPage
+   ({
+     this.auth,
+     this.onSignedIn
+   });
+
+   final AuthImplementation auth;
+   final VoidCallback onSignedIn;
+
+
+   @override
   _LoginRegisterState createState() =>  _LoginRegisterState();
 }
 
@@ -33,6 +48,32 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
       return false;
   }
 
+  void ValidateAndSubmit() async
+  {
+         if(ValidateAndSave())
+         {
+           try
+           {
+              if(_formType == FormType.login)
+              {
+                String userId = await widget.auth.SignIn(_email, _password);
+                print("login userId="+userId);
+              }
+              else
+              {
+                String userId = await widget.auth.SignUp(_email, _password);
+                print("Register userId="+userId);
+              }
+
+              widget.onSignedIn();
+           }
+           catch(e)
+           {
+              print("Error:"+ e.toString());
+           }
+         }
+  }
+
   void MoveToRegisterScreen()
   {
         formKey.currentState.reset();
@@ -62,8 +103,8 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
            (
             alignment: Alignment.center,
             child:  Text("Flutter HealthTech App",style: TextStyle(color:Colors.white,fontSize: 20.0,),),
-            color: Colors.pink,
            ),
+           backgroundColor: Colors.pink,
            
       ),
 
@@ -141,7 +182,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
          child: Text("Login",style:TextStyle(color:Colors.white,fontSize:20.0)),
          //textColor: Colors.white,
          color: Colors.pink,
-         onPressed: ()=>ValidateAndSave(),
+         onPressed: ()=>ValidateAndSubmit(),
         ),
 
         FlatButton
@@ -162,7 +203,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
          child: Text("SignUp",style:TextStyle(color:Colors.white,fontSize:20.0)),
          //textColor: Colors.white,
          color: Colors.pink,
-         onPressed: ()=>ValidateAndSave(),
+         onPressed: ()=>ValidateAndSubmit(),
         ),
 
         FlatButton

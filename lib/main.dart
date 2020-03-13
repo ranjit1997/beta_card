@@ -1,5 +1,6 @@
 
-
+import 'package:beta_card/Authentication.dart';
+import 'package:beta_card/Mapping.dart';
 import 'package:beta_card/Widget_Screens/Screen_LoginRegister.dart';
 import 'package:beta_card/Widget_Screens/Screen_HomePage.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +21,10 @@ class MyApp extends StatelessWidget {
        
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'HealthCare_Tech App'),
+      //home: MyHomePage(title: 'HealthCare_Tech App'),
+       //home: MyHomePage(),
       //home: LoginRegisterPage(),
+      home: MappingPage(auth: Auth(),),
     );
   }
 }

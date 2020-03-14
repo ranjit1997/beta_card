@@ -24,9 +24,7 @@ class MyApp extends StatelessWidget {
        
         primarySwatch: Colors.blue,
       ),
-      //home: MyHomePage(title: 'HealthCare_Tech App'),
-       //home: MyHomePage(),
-      //home: LoginRegisterPage(),
+     
       home: MappingPage(auth: Auth(),),
     );
   }

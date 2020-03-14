@@ -1,5 +1,6 @@
 
 import 'package:beta_card/Authentication.dart';
+import 'package:beta_card/UploadPhoto.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -72,7 +73,17 @@ class _MyHomePageState extends State<MyHomePage> {
                       icon: Icon(Icons.photo_camera),
                       iconSize: 40,
                       color: Colors.white, 
-                      onPressed:null,
+                      onPressed:()
+                      { 
+                        Navigator.push
+                                (
+                                  context, 
+                                  MaterialPageRoute(builder: (context)
+                                  {
+                                    return new UploadPhotoPage();
+                                  })
+                                );
+                      }
                       ),
 
                     IconButton(

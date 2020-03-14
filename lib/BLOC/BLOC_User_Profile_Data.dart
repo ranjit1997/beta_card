@@ -11,7 +11,7 @@ class UploadUserData
 {
 
 String url;
-UserProfile userProfile = new UserProfile();
+UserProfile userProfile = new UserProfile();//model class Object.
 
 void UploadStatusImage(BuildContext context,File sampleImage) async
  {
@@ -46,7 +46,7 @@ void saveToDatabase(url)
      var data =
      {
           "image":url,
-          "FirstName": userProfile.getFirstName(),
+          "FirstName": userProfile.getFirstName(), //adding data to firebase using getter methods
           "LastName":  userProfile.getLastName(),
           "MobileNo":  userProfile.getMobileNo(),
           "Date":date,

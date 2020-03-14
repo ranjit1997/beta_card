@@ -103,7 +103,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
              onSaved: (value)
              {
                 //return _myFirstName = value;
-                return userProfileObj.setFirstName(value);
+                return userProfileObj.setFirstName(value); //assigning data through setter methods.
              },
            ),
 

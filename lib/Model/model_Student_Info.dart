@@ -2,7 +2,7 @@ class StudentID
 {
   String stud_FirstName;
   String stud_LastName;
-  int stud_ID;
+  int stud_ID=101;
 
   String getFirstName(String firstName)
   {
@@ -14,8 +14,8 @@ class StudentID
       return stud_LastName = lastName;
   }
 
-  int getStdID(int std_ID)
+  int getStdID()
   {
-    return  stud_ID = std_ID;
+    return  stud_ID ;
   }
 }

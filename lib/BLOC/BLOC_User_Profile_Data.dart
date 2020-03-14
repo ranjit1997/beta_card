@@ -27,7 +27,7 @@ void UploadStatusImage(BuildContext context,File sampleImage) async
        url = ImageUrl.toString();
        print("Image Url ="+url);
 
-       gotToHomePage();
+       gotToHomePage(context);
 
       saveToDatabase(url);
 }
@@ -56,7 +56,7 @@ void saveToDatabase(url)
      ref.child("UsersInfo").push().set(data);
 }
 
-void gotToHomePage()
+void gotToHomePage(context)
 {
   Navigator.push
   (

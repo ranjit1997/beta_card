@@ -16,8 +16,8 @@ class UploadPhotoPage extends StatefulWidget
 class _UploadPhotoPageState extends State<UploadPhotoPage>
 {
 
-  UserProfile userProfileObj = new UserProfile();
-  UploadUserData userDataObj = new UploadUserData();
+  UserProfile userProfileObj = new UserProfile(); //model class Object.
+  UploadUserData userDataObj = new UploadUserData(); // BLOC class Object.
   File sampleImage;
  // String _myFirstName,_myLastName,_myMobileNo,_myDOB,_myGender;
   //String url;
@@ -47,67 +47,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
     return false;
   }
 
-/*
-void UploadStatusImage() async
-{
 
-  
-
-final StorageReference userProfileImageRef = FirebaseStorage.instance.ref().child("Profile Images");
-
-var timeKey = new DateTime.now();//it is unique id for every profile image in storage.
-
-final StorageUploadTask uploadTask = userProfileImageRef.child(timeKey.toString() + ".jpg").putFile(sampleImage);
-
-var ImageUrl = await(await uploadTask.onComplete).ref.getDownloadURL();
-
-url = ImageUrl.toString();
-print("Image Url ="+url);
-
- gotToHomePage();
-
-saveToDatabase(url);
-
-}
-*/
-
-/*
-void saveToDatabase(url)
-{
-     var currentTimeKey = new DateTime.now();
-     var formatDate = new DateFormat('MMM d,yyyy');
-     var formatTime = new DateFormat('EEEE,hh:mm aaa');
-
-     String date = formatDate.format(currentTimeKey);
-     String time = formatTime.format(currentTimeKey);
-
-     DatabaseReference ref = FirebaseDatabase.instance.reference();
-
-     var data =
-     {
-          "image":url,
-          "FirstName": _myFirstName,
-          "LastName": _myLastName,
-          "MobileNo": _myMobileNo,
-          "Date":date,
-          "Time":time,
-     };
-
-     ref.child("UsersInfo").push().set(data);
-}
-
-void gotToHomePage()
-{
-  Navigator.push
-  (
-    context, 
-    MaterialPageRoute(builder: (context)
-    {
-        return new MyHomePage();
-    })
-  );
-}
-*/
 
   @override
   Widget build(BuildContext context) 

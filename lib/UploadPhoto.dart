@@ -16,7 +16,8 @@ class UploadPhotoPage extends StatefulWidget
 class _UploadPhotoPageState extends State<UploadPhotoPage>
 {
 
-  UserProfile userProfile = new UserProfile();
+  UserProfile userProfileObj = new UserProfile();
+  UploadUserData userDataObj = new UploadUserData();
   File sampleImage;
  // String _myFirstName,_myLastName,_myMobileNo,_myDOB,_myGender;
   //String url;
@@ -162,7 +163,7 @@ void gotToHomePage()
              onSaved: (value)
              {
                 //return _myFirstName = value;
-                return userProfile.setFirstName(value);
+                return userProfileObj.setFirstName(value);
              },
            ),
 
@@ -179,7 +180,7 @@ void gotToHomePage()
              onSaved: (value)
              {
                 //return _myLastName = value;
-                return userProfile.setLastName(value);
+                return userProfileObj.setLastName(value);
              },
            ),
 
@@ -196,7 +197,7 @@ void gotToHomePage()
              onSaved: (value)
              {
                 //return _myMobileNo = value;
-                return userProfile.setMobileNo(int.parse(value));
+                return userProfileObj.setMobileNo(int.parse(value));
              },
            ),
 
@@ -211,7 +212,7 @@ void gotToHomePage()
              color: Colors.pink,
              onPressed:()=>
              { 
-               UploadStatusImage(context,sampleImage)
+               userDataObj.UploadStatusImage(context,sampleImage)
              },
            ),
          ],

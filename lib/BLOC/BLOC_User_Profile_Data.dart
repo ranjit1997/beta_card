@@ -1,17 +1,19 @@
 
 import 'package:beta_card/Model/model_User_Profile.dart';
 import 'package:beta_card/Widget_Screens/Screen_HomePage.dart';
+import 'package:beta_card/main.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:intl/intl.dart';
 import 'dart:io';
 
+
 class UploadUserData
 {
 
 String url;
-UserProfile userProfile = new UserProfile();//model class Object.
+//UserProfile userProfile = new UserProfile();//model class Object.
 
 void UploadStatusImage(BuildContext context,File sampleImage) async
  {
@@ -46,9 +48,9 @@ void saveToDatabase(url)
      var data =
      {
           "image":url,
-          "FirstName": userProfile.getFirstName(), //adding data to firebase using getter methods
-          "LastName":  userProfile.getLastName(),
-          "MobileNo":  userProfile.getMobileNo(),
+          "FirstName": userProfileObj.getFirstName(), //adding data to firebase using getter methods
+          "LastName":  userProfileObj.getLastName(),
+          "MobileNo":  userProfileObj.getMobileNo(),
           "Date":date,
           "Time":time,
      };

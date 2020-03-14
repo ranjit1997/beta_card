@@ -2,11 +2,13 @@ import 'package:beta_card/Model/model_User_Profile.dart';
 import 'package:beta_card/Widget_Screens/Screen_HomePage.dart';
 import 'package:beta_card/BLOC/BLOC_User_Profile_Data.dart';
 import 'package:flutter/material.dart';
+import 'package:beta_card/main.dart';
 import 'package:intl/intl.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+
 
 class UploadPhotoPage extends StatefulWidget
 {
@@ -16,11 +18,10 @@ class UploadPhotoPage extends StatefulWidget
 class _UploadPhotoPageState extends State<UploadPhotoPage>
 {
 
-  UserProfile userProfileObj = new UserProfile(); //model class Object.
+  //UserProfile userProfileObj = new UserProfile(); //model class Object.
   UploadUserData userDataObj = new UploadUserData(); // BLOC class Object.
   File sampleImage;
- // String _myFirstName,_myLastName,_myMobileNo,_myDOB,_myGender;
-  //String url;
+ 
   final formKey = new GlobalKey<FormState>();
   
 
@@ -103,7 +104,8 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
              onSaved: (value)
              {
                 //return _myFirstName = value;
-                return userProfileObj.setFirstName(value); //assigning data through setter methods.
+                return userProfileObj.setFirstName(value);
+                 //assigning data through setter methods.
              },
            ),
 

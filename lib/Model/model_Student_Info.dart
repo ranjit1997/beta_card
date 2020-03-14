@@ -6,16 +6,16 @@ class StudentID
 
   String getFirstName(String firstName)
   {
-    return  this.stud_FirstName = firstName;
+    return  stud_FirstName = firstName;
   }
 
   String getLastName(String lastName)
   {
-      return this.stud_LastName = lastName;
+      return stud_LastName = lastName;
   }
 
   int getStdID(int std_ID)
   {
-    return  this.stud_ID = std_ID;
+    return  stud_ID = std_ID;
   }
 }

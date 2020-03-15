@@ -13,9 +13,10 @@ class UploadUserData
 
 String url;
 
+
 void UploadStatusImage(BuildContext context,UserProfile userProfileObj) async
  {
-
+      
       final StorageReference userProfileImageRef = FirebaseStorage.instance.ref().child("Profile Images");
 
        var timeKey = new DateTime.now();//it is unique id for every profile image in storage.
@@ -30,6 +31,7 @@ void UploadStatusImage(BuildContext context,UserProfile userProfileObj) async
        gotToHomePage(context);
 
       saveToDatabase(url,userProfileObj);
+      
 }
 
 void saveToDatabase(url,userProfileObj)

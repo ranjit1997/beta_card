@@ -2,9 +2,8 @@
 import 'package:beta_card/BLOC/BLOC_User_Profile_Data.dart';
 import 'package:beta_card/Model/model_User_Profile.dart';
 import 'package:flutter/material.dart';
-import 'package:beta_card/main.dart';
 import 'package:image_picker/image_picker.dart';
-import 'dart:io';
+
 
 
 class UploadPhotoPage extends StatefulWidget
@@ -15,13 +14,12 @@ class UploadPhotoPage extends StatefulWidget
 class _UploadPhotoPageState extends State<UploadPhotoPage>
 {
 
+  final formKey = new GlobalKey<FormState>();
+
   UserProfile userProfileObj = new UserProfile(); //model class Object.
   UploadUserData userDataObj = new UploadUserData(); // BLOC class Object.
  // File sampleImage;
  
-  final formKey = new GlobalKey<FormState>();
-  
-
   Future getImage() async
   {
     var tempImage = await ImagePicker.pickImage(source: ImageSource.gallery);
@@ -33,6 +31,8 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
     });
   }
 
+  
+   
 
   bool validateAndSave()
   {
@@ -51,7 +51,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
   @override
   Widget build(BuildContext context) 
   {
-    
+       
     return Scaffold
     (
       appBar: AppBar
@@ -104,7 +104,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
              onSaved: (value)
              {
                 //return _myFirstName = value;
-                 userProfileObj.setFirstName(value);
+                return userProfileObj.setFirstName(value);
                  //assigning data through setter methods.
              },
            ),
@@ -122,7 +122,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
              onSaved: (value)
              {
                 //return _myLastName = value;
-                 userProfileObj.setLastName(value);
+                return userProfileObj.setLastName(value);
              },
            ),
 
@@ -139,7 +139,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
              onSaved: (value)
              {
                 //return _myMobileNo = value;
-                 userProfileObj.setMobileNo(int.parse(value));
+                return userProfileObj.setMobileNo(int.parse(value));
              },
            ),
 
@@ -154,7 +154,10 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
              color: Colors.pink,
              onPressed:()=>
              { 
-               userDataObj.UploadStatusImage(context,userProfileObj) //passing model object in BLOC method.
+               if(validateAndSave())
+               {
+                 userDataObj.UploadStatusImage(context,userProfileObj) //passing model object in BLOC method.
+               }, 
              },
            ),
          ],

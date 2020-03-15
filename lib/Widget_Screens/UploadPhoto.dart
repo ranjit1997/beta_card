@@ -152,7 +152,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
              color: Colors.pink,
              onPressed:()=>
              { 
-               userDataObj.UploadStatusImage(context,userProfileObj)
+               userDataObj.UploadStatusImage(context,userProfileObj) //passing model object in BLOC method.
              },
            ),
          ],

@@ -81,11 +81,13 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
     return SingleChildScrollView(
     child: Container
     (
+      margin: EdgeInsets.all(15.0),
       child: Form
       (
        key: formKey,
        child: Column
        (
+         crossAxisAlignment: CrossAxisAlignment.stretch,
          children: <Widget>
          [
            Image.file(userProfileObj.getUserProfileImage(),height:330.0, width:600.0),
@@ -102,7 +104,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
              onSaved: (value)
              {
                 //return _myFirstName = value;
-                return userProfileObj.setFirstName(value);
+                 userProfileObj.setFirstName(value);
                  //assigning data through setter methods.
              },
            ),
@@ -120,7 +122,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
              onSaved: (value)
              {
                 //return _myLastName = value;
-                return userProfileObj.setLastName(value);
+                 userProfileObj.setLastName(value);
              },
            ),
 
@@ -137,7 +139,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
              onSaved: (value)
              {
                 //return _myMobileNo = value;
-                return userProfileObj.setMobileNo(int.parse(value));
+                 userProfileObj.setMobileNo(int.parse(value));
              },
            ),
 

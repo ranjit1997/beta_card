@@ -142,7 +142,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
 
         new TextFormField
         (
-          decoration: new InputDecoration(labelText: 'Email'),
+          decoration: new InputDecoration(icon:Icon(Icons.email),labelText: 'Email'),
           validator: (value)
           {
              return value.isEmpty?"Email is required":null;
@@ -157,7 +157,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
         SizedBox(height:10.0,),
          new TextFormField
         (
-          decoration: new InputDecoration(labelText: 'Password'),
+          decoration: new InputDecoration(icon:Icon(Icons.lock),labelText: 'Password'),
           obscureText: true,
            validator: (value)
           {

@@ -43,6 +43,10 @@ void saveToDatabase(url,userProfileObj)
 
      DatabaseReference ref = FirebaseDatabase.instance.reference();
 
+     print(userProfileObj.getFirstName());
+     print(userProfileObj.getLastName());
+     print(userProfileObj.getMobileNo());
+
      var data =
      {
           "image":url,

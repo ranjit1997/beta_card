@@ -9,7 +9,7 @@ import 'package:beta_card/BLOC/StudentIDRule_BLOC.dart';
   StudentVerfication studentBlocObj = new StudentVerfication(); //Bloc class object.
   
 
-  void method1()
+  StudentVerfication getBlocMethod()
   {
     studentBlocObj.studentIDVerification(studentObj);
   }

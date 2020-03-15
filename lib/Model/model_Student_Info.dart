@@ -3,6 +3,8 @@ class StudentID
   String stud_FirstName;
   String stud_LastName;
   int stud_ID=101;
+  String feesPaidForThirdYear;
+  String attendanceForThirdYear;
 
   String getFirstName(String firstName)
   {

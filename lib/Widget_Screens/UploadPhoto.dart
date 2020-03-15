@@ -1,11 +1,8 @@
-import 'package:beta_card/Model/model_User_Profile.dart';
-import 'package:beta_card/Widget_Screens/Screen_HomePage.dart';
+
 import 'package:beta_card/BLOC/BLOC_User_Profile_Data.dart';
+import 'package:beta_card/Model/model_User_Profile.dart';
 import 'package:flutter/material.dart';
 import 'package:beta_card/main.dart';
-import 'package:intl/intl.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
@@ -18,9 +15,9 @@ class UploadPhotoPage extends StatefulWidget
 class _UploadPhotoPageState extends State<UploadPhotoPage>
 {
 
-  //UserProfile userProfileObj = new UserProfile(); //model class Object.
+  UserProfile userProfileObj = new UserProfile(); //model class Object.
   UploadUserData userDataObj = new UploadUserData(); // BLOC class Object.
-  File sampleImage;
+ // File sampleImage;
  
   final formKey = new GlobalKey<FormState>();
   
@@ -31,7 +28,8 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
 
     setState(() 
     {
-      sampleImage = tempImage;
+      //sampleImage = tempImage;
+      userProfileObj.setUserProfileImage(tempImage);
     });
   }
 
@@ -65,7 +63,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
 
       body: new Center
       (
-        child: sampleImage ==null?Text("Select an image"):enableUpload(),
+        child: userProfileObj.getUserProfileImage() ==null?Text("Select an image"):enableUpload(),
       ),
 
       floatingActionButton: FloatingActionButton
@@ -90,7 +88,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
        (
          children: <Widget>
          [
-           Image.file(sampleImage,height:330.0, width:600.0),
+           Image.file(userProfileObj.getUserProfileImage(),height:330.0, width:600.0),
 
            SizedBox(height: 15.0,),
            TextFormField
@@ -154,7 +152,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
              color: Colors.pink,
              onPressed:()=>
              { 
-               userDataObj.UploadStatusImage(context,sampleImage)
+               userDataObj.UploadStatusImage(context,userProfileObj)
              },
            ),
          ],

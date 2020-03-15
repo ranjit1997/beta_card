@@ -1,28 +1,26 @@
 
 import 'package:beta_card/Model/model_User_Profile.dart';
 import 'package:beta_card/Widget_Screens/Screen_HomePage.dart';
-import 'package:beta_card/main.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:intl/intl.dart';
-import 'dart:io';
+
 
 
 class UploadUserData
 {
 
 String url;
-//UserProfile userProfile = new UserProfile();//model class Object.
 
-void UploadStatusImage(BuildContext context,File sampleImage) async
+void UploadStatusImage(BuildContext context,UserProfile userProfileObj) async
  {
 
       final StorageReference userProfileImageRef = FirebaseStorage.instance.ref().child("Profile Images");
 
        var timeKey = new DateTime.now();//it is unique id for every profile image in storage.
 
-       final StorageUploadTask uploadTask = userProfileImageRef.child(timeKey.toString() + ".jpg").putFile(sampleImage);
+       final StorageUploadTask uploadTask = userProfileImageRef.child(timeKey.toString() + ".jpg").putFile(userProfileObj.getUserProfileImage());
 
         var ImageUrl = await(await uploadTask.onComplete).ref.getDownloadURL();
 
@@ -31,10 +29,10 @@ void UploadStatusImage(BuildContext context,File sampleImage) async
 
        gotToHomePage(context);
 
-      saveToDatabase(url);
+      saveToDatabase(url,userProfileObj);
 }
 
-void saveToDatabase(url)
+void saveToDatabase(url,userProfileObj)
 {
      var currentTimeKey = new DateTime.now();
      var formatDate = new DateFormat('MMM d,yyyy');

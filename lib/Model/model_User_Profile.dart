@@ -1,3 +1,5 @@
+import 'dart:io';
+
 class UserProfile
 {
   //private variables of this class are declared here..
@@ -6,6 +8,7 @@ class UserProfile
   String _userDOB;
   String _userGender;
   int _userMobileNo;
+  File _profileImage;
 
  //setters and getters are declared to access these variables.
   void setFirstName(String firstName)
@@ -56,5 +59,15 @@ class UserProfile
   String getUserGender()
   {
     return _userGender;
+  }
+
+  void setUserProfileImage(File sampleImage)
+  {
+    _profileImage = sampleImage;
+  }
+
+  File getUserProfileImage()
+  {
+    return _profileImage;
   }
 }

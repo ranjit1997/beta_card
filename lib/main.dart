@@ -1,13 +1,8 @@
 
 import 'package:beta_card/Authentication.dart';
 import 'package:beta_card/Mapping.dart';
-import 'package:beta_card/Widget_Screens/Screen_LoginRegister.dart';
-import 'package:beta_card/Widget_Screens/Screen_HomePage.dart';
-import 'package:beta_card/Model/model_User_Profile.dart';
 import 'package:flutter/material.dart';
 
-
-UserProfile userProfileObj = new UserProfile();//model class object.
 
 void main() 
 { 

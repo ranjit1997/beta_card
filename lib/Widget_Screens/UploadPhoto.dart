@@ -93,7 +93,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
            SizedBox(height: 15.0,),
            TextFormField
            (
-             decoration: InputDecoration(labelText:'FirstName'),
+             decoration: InputDecoration(icon:Icon(Icons.person_outline),labelText:'FirstName'),
              validator: (value)
              {
                return value.isEmpty?'Enter FirstName':null;
@@ -111,7 +111,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
 
             TextFormField
            (
-             decoration: InputDecoration(labelText:'LastName'),
+             decoration: InputDecoration(icon:Icon(Icons.person_outline),labelText:'LastName'),
              validator: (value)
              {
                return value.isEmpty?'Enter LastName':null;
@@ -128,7 +128,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
            
            TextFormField
            (
-             decoration: InputDecoration(labelText:'Mobile Number'),
+             decoration: InputDecoration(icon:Icon(Icons.phone),labelText:'Mobile Number'),
              validator: (value)
              {
                return value.isEmpty?'Enter Mobile Number':null;

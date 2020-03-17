@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "45152086609",
+    "firebase_url": "https://beta-card-testing.firebaseio.com",
+    "project_id": "beta-card-testing",
+    "storage_bucket": "beta-card-testing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45152086609:android:66b1a149aea9cf22c0a670",
+        "android_client_info": {
+          "package_name": "com.example.beta_card"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "45152086609-o4rik8j61a3i4c4e7brb21gqd552ll93.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.beta_card",
+            "certificate_hash": "4f0db488e9eb36cd66d5defd3df4cfef39e7e16c"
+          }
+        },
+        {
+          "client_id": "45152086609-o09mc6s8gmsec2hsct3um2if4lq4gsbn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGnKzSa_BAYTStfQN4O5zWikAcXOU-mpI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "45152086609-o09mc6s8gmsec2hsct3um2if4lq4gsbn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

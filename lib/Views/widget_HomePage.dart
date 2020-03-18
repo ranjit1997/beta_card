@@ -1,6 +1,6 @@
 
-import 'package:beta_card/Authentication.dart';
-import 'package:beta_card/Widget_Screens/UploadPhoto.dart';
+import 'package:beta_card/Utility/DBWebService_FireBase_Authentication.dart';
+import 'package:beta_card/Views/widget_UploadPhoto.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {

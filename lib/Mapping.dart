@@ -1,7 +1,8 @@
+import 'package:beta_card/Utility/DBWebService_FireBase_Authentication.dart';
+import 'package:beta_card/Views/widget_HomePage.dart';
+import 'package:beta_card/Views/widget_LoginRegister.dart';
 import 'package:flutter/material.dart';
-import 'package:beta_card/Widget_Screens/Screen_LoginRegister.dart';
-import 'package:beta_card/Widget_Screens/Screen_HomePage.dart';
-import 'Authentication.dart';
+
 
 //This class is used to check the state of user whether loggedIn or not.
 class MappingPage extends StatefulWidget

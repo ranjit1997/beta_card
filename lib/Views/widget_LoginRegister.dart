@@ -1,7 +1,7 @@
 
-import 'package:beta_card/Widget_Screens/DialogBox.dart';
+import 'package:beta_card/Utility/DBWebService_FireBase_Authentication.dart';
+import 'package:beta_card/Views/widget_DialogBox.dart';
 import 'package:flutter/material.dart';
-import 'package:beta_card/Authentication.dart';
 
 
 

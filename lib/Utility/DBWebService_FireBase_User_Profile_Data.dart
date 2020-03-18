@@ -1,6 +1,6 @@
 
 import 'package:beta_card/Model/model_User_Profile.dart';
-import 'package:beta_card/Widget_Screens/Screen_HomePage.dart';
+import 'package:beta_card/Views/widget_HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';

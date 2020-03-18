@@ -1,4 +1,3 @@
-import 'package:beta_card/Views/screen_user_profile.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: new UserProfile(),
+      // home: new UserProfile(),
     );
   }
 }

@@ -11,14 +11,16 @@ class RetriveUserData{
       var data = snap.value;
       allData.clear();
       for (var key in keys) {
-        
          data[key][myData.setUserName(name)],
          data[key][myData.setUserMessage(message)],
          data[key][myData.setUserProfession(profession)],
-         allData.add( data[key][myData.getUserName()],data[key][myData.getUserMessage()],
-                   data[key][myData.getUserProfession()]
-                   );
-      }
+
+         allData.add(
+            data[key][myData.getUserName()],
+            data[key][myData.getUserMessage()],
+            data[key][myData.getUserProfession()]
+           );
+         }
     /*
       setState(() {
         print('Length : ${allData.length}');

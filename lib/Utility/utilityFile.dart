@@ -1,1 +1,0 @@
-//this file contain api calls or DB connectivity code.

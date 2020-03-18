@@ -1,6 +1,6 @@
 
-import 'package:beta_card/BLOC/BLOC_User_Profile_Data.dart';
 import 'package:beta_card/Model/model_User_Profile.dart';
+import 'package:beta_card/Utility/webService_FB_User_Profile_Data.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 

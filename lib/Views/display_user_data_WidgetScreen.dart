@@ -1,4 +1,5 @@
-import 'package:beta_card/Model/myData.dart';
+import 'package:beta_card/BLOC/BLOC_retrive_user_data.dart';
+import 'package:beta_card/Model/model_user_data.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 
@@ -9,27 +10,15 @@ class ShowDataPage extends StatefulWidget {
 }
 
 class _ShowDataPageState extends State<ShowDataPage> {
+  
   List<MyData> allData = [];
-
+  MyData myData = new MyData();//Object creation of model class
+  RetriveUserData retriveData = new RetriveUserData();//Object creation of BLOC class
+  DatabaseReference ref = FirebaseDatabase.instance.reference();//Object Creation of Firebase Database
+  
   @override
   void initState() {
-    DatabaseReference ref = FirebaseDatabase.instance.reference();
-    ref.child('node-name').once().then((DataSnapshot snap) {
-      var keys = snap.value.keys;
-      var data = snap.value;
-      allData.clear();
-      for (var key in keys) {
-        MyData d = new MyData(
-          data[key]['name'],
-          data[key]['message'],
-          data[key]['profession'],
-        );
-        allData.add(d);
-      }
-      setState(() {
-        print('Length : ${allData.length}');
-      });
-    });
+    retriveData.showUserData(allData,myData, ref);
   }
 
   @override
@@ -46,7 +35,7 @@ class _ShowDataPageState extends State<ShowDataPage> {
                   itemBuilder: (_, index) {
                     return uI(
                       allData[index].name,
-                      allData[index].profession,
+                      allData[index].professional,
                       allData[index].message,
                     );
                   },

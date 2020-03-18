@@ -1,4 +1,4 @@
-import 'package:beta_card/Views/first_page.dart';
+import 'package:beta_card/Views/userInput_data_WidgetScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());

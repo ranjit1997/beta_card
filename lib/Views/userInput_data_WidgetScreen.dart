@@ -1,5 +1,5 @@
-import 'package:beta_card/Views/ShowDataPage.dart';
-import 'package:firebase_database/firebase_database.dart';
+import 'package:beta_card/BLOC/BLOC_add_user_data.dart';
+import 'package:beta_card/Model/model_user_data.dart';
 import 'package:flutter/material.dart';
 
 class FirstPage extends StatefulWidget {
@@ -10,7 +10,12 @@ class FirstPage extends StatefulWidget {
 class _FirstPageState extends State<FirstPage> {
     GlobalKey<FormState> _key = new GlobalKey();
   bool _autovalidate = false;
-  String name, profession, message;
+ // String name, profession, message;
+
+   MyData myData = new MyData();// Object creation of model
+   AddUserData addUserData = new AddUserData(); // Object creation of BLOC
+
+
   List<DropdownMenuItem<String>> items = [
     new DropdownMenuItem(
       child: new Text('Student'),
@@ -22,6 +27,24 @@ class _FirstPageState extends State<FirstPage> {
     ),
   ];
 
+
+  bool validateAndSave()
+  {
+       if (_key.currentState.validate()) 
+         {
+           _key.currentState.save();
+            return true;
+           _key.currentState.reset();
+         }
+     else
+        {
+           setState(() {
+              _autovalidate = true;
+           });
+           
+        }
+  } 
+  
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -52,7 +75,8 @@ class _FirstPageState extends State<FirstPage> {
                 decoration: new InputDecoration(hintText: 'Name'),
                 validator: validateName,
                 onSaved: (val) {
-                  name = val;
+                  //name = val;
+                    myData.setUserName(val); // assigning value to model class.
                 },
                 maxLength: 32,
               ),
@@ -65,7 +89,8 @@ class _FirstPageState extends State<FirstPage> {
               value: profession,
               onChanged: (String val) {
                 setState(() {
-                  profession = val;
+                  //profession = val;
+                     myData.setUserProfession(val);
                 });
               },
             ))
@@ -74,14 +99,22 @@ class _FirstPageState extends State<FirstPage> {
         new TextFormField(
           decoration: new InputDecoration(hintText: 'Message'),
           onSaved: (val) {
-            message = val;
+            //message = val;
+              myData.setUserMessage(val); // assigning value to the model class.
           },
           validator: validateMessage,
           maxLines: 5,
           maxLength: 256,
         ),
         new RaisedButton(
-          onPressed: _sendToServer,
+          onPressed:()
+                      { 
+                        if(validateAndSave())
+                         {
+                            addUserData.sendToServer(myData)
+                         },   
+                       } ,
+             
           child: new Text('Send'),
         ),
         new SizedBox(height: 20.0),
@@ -96,24 +129,6 @@ class _FirstPageState extends State<FirstPage> {
     );
   }
 
-  _sendToServer() {
-    if (_key.currentState.validate()) {
-      _key.currentState.save();
-      DatabaseReference ref = FirebaseDatabase.instance.reference();
-      var data = {
-        "name": name,
-        "profession": profession,
-        "message": message,
-      };
-      ref.child('node-name').push().set(data).then((v) {
-        _key.currentState.reset();
-      });
-    } else {
-      setState(() {
-        _autovalidate = true;
-      });
-    }
-  }
 
   String validateName(String val) {
     return val.length == 0 ? "Enter Name First" : null;
@@ -122,4 +137,5 @@ class _FirstPageState extends State<FirstPage> {
   String validateMessage(String val) {
     return val.length == 0 ? "Enter Email First" : null;
   }
+
 }

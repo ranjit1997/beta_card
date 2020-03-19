@@ -1,6 +1,7 @@
 
 import 'package:beta_card/Utility/DBWebService_FireBase_Authentication.dart';
 import 'package:beta_card/Views/widget_DialogBox.dart';
+import 'package:beta_card/Views/widget_UploadPhoto.dart';
 import 'package:flutter/material.dart';
 
 
@@ -15,6 +16,17 @@ class LoginRegisterPage extends StatefulWidget
 
    final AuthImplementation auth;
    final VoidCallback onSignedIn;
+   
+  String _userId;
+  
+  void setUserID(String uid)
+  {
+    this._userId=uid;
+  }
+  String getUserID()
+  {
+    return _userId;
+  }
 
 
    @override
@@ -36,6 +48,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
   String _email="";
   String _password="";
 
+  
   //Methods
 
   bool ValidateAndSave()
@@ -61,6 +74,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
               {
                 String userId = await widget.auth.SignIn(_email, _password);
                 dialogBox.information(context,"Congrulations","You are loggedIn successfully");
+                LoginRegisterPage().setUserID(userId);
                 print("login userId="+userId);
               }
               else
@@ -68,6 +82,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
                 String userId = await widget.auth.SignUp(_email, _password);
                 dialogBox.information(context,"Congrulations","Your account has created successfully");
                 print("Register userId="+userId);
+                
               }
 
               widget.onSignedIn();

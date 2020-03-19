@@ -14,7 +14,7 @@ class UploadUserData
 String url;
 
 
-void UploadStatusImage(BuildContext context,UserProfile userProfileObj) async
+void UploadStatusImage(BuildContext context,UserProfile userProfileObj,String uID) async
  {
       
       final StorageReference userProfileImageRef = FirebaseStorage.instance.ref().child("Profile Images");
@@ -58,7 +58,8 @@ void saveToDatabase(url,userProfileObj)
           "Date":date,
           "Time":time,
      };
-
+    
+    
      ref.child("UsersInfo").push().set(data);
 }
 

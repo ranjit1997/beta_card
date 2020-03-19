@@ -1,6 +1,7 @@
 
 import 'package:beta_card/Model/model_User_Profile.dart';
 import 'package:beta_card/Utility/DBWebService_FireBase_User_Profile_Data.dart';
+import 'package:beta_card/Views/widget_LoginRegister.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -8,6 +9,7 @@ import 'package:image_picker/image_picker.dart';
 
 class UploadPhotoPage extends StatefulWidget
 {
+    
   _UploadPhotoPageState createState()=> new _UploadPhotoPageState();
 }
 
@@ -18,6 +20,8 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
 
   UserProfile userProfileObj = new UserProfile(); //model class Object.
   UploadUserData userDataObj = new UploadUserData(); // BLOC class Object.
+  LoginRegisterPage loginRegPage = new LoginRegisterPage();
+  
  // File sampleImage;
  
   Future getImage() async
@@ -156,7 +160,8 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
              { 
                if(validateAndSave())
                {
-                 userDataObj.UploadStatusImage(context,userProfileObj) //passing model object in BLOC method.
+                 
+                 userDataObj.UploadStatusImage(context,userProfileObj,loginRegPage.getUserID()) //passing model object in BLOC method.
                }, 
              },
            ),

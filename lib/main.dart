@@ -40,15 +40,42 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
        
-        child: Column(
+        child:Form(
+          child: Column(
+          
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Welcome to Flutter framework',
-            ),
+              AbsorbPointer
+              (
+                absorbing: true,
+                child: TextFormField
+                (
+                   decoration: InputDecoration(icon:Icon(Icons.person_outline),labelText:'FirstName'),
+                   
+                   
+                ),
+              ),
+              
+               SizedBox(height: 15.0,),
+              Row(
+                 mainAxisAlignment: MainAxisAlignment.center,
+              children:<Widget>
+                [ 
+              TextFormField
+                (
+                   decoration: InputDecoration(icon:Icon(Icons.person_outline),labelText:'LastName'),
+                   enabled: true,
+                   
+                ),
+                IconButton(icon: Icon(Icons.edit), onPressed:null),
+                ],
+              ),
           ],
+          ),
           ),
           ),     
     );
   }
+
+ 
 }

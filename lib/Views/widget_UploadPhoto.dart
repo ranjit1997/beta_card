@@ -161,7 +161,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
                if(validateAndSave())
                {
                  
-                 userDataObj.UploadStatusImage(context,userProfileObj,loginRegPage.getUserID()) //passing model object in BLOC method.
+                 userDataObj.UploadStatusImage(context,userProfileObj) //passing model object in BLOC method.
                }, 
              },
            ),

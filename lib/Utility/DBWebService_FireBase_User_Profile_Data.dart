@@ -1,4 +1,5 @@
 
+import 'package:beta_card/Model/model_User_ID.dart';
 import 'package:beta_card/Model/model_User_Profile.dart';
 import 'package:beta_card/Views/widget_HomePage.dart';
 import 'package:flutter/material.dart';
@@ -14,14 +15,14 @@ class UploadUserData
 String url;
 
 
-void UploadStatusImage(BuildContext context,UserProfile userProfileObj,String uID) async
+void UploadStatusImage(BuildContext context,UserProfile userProfileObj) async
  {
       
       final StorageReference userProfileImageRef = FirebaseStorage.instance.ref().child("Profile Images");
 
        var timeKey = new DateTime.now();//it is unique id for every profile image in storage.
 
-       final StorageUploadTask uploadTask = userProfileImageRef.child(timeKey.toString() + ".jpg").putFile(userProfileObj.getUserProfileImage());
+       final StorageUploadTask uploadTask = userProfileImageRef.child(getUserID()+ ".jpg").putFile(userProfileObj.getUserProfileImage());
 
         var ImageUrl = await(await uploadTask.onComplete).ref.getDownloadURL();
 
@@ -58,9 +59,8 @@ void saveToDatabase(url,userProfileObj)
           "Date":date,
           "Time":time,
      };
-    
-    
-     ref.child("UsersInfo").push().set(data);
+        
+     ref.child("UsersInfo").child(getUserID()).set(data);
 }
 
 void gotToHomePage(context)

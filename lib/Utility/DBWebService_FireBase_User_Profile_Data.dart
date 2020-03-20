@@ -20,7 +20,7 @@ void UploadStatusImage(BuildContext context,UserProfile userProfileObj) async
       
       final StorageReference userProfileImageRef = FirebaseStorage.instance.ref().child("Profile Images");
 
-       var timeKey = new DateTime.now();//it is unique id for every profile image in storage.
+      // var timeKey = new DateTime.now();//it is unique id for every profile image in storage.
 
        final StorageUploadTask uploadTask = userProfileImageRef.child(getUserID()+ ".jpg").putFile(userProfileObj.getUserProfileImage());
 

@@ -1,3 +1,6 @@
+import 'package:beta_card/EditableTextField.dart';
+import 'package:beta_card/ProfilePage.dart';
+import 'package:beta_card/TextField2.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -12,70 +15,48 @@ class MyApp extends StatelessWidget {
        
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo HomePage2'),
+     // home: MyHomePage(title: 'Flutter Demo HomePage2'),
+     //home: ProfilePage(),
+     home:DisableTextField1(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+// class MyHomePage extends StatefulWidget {
+//   MyHomePage({Key key, this.title}) : super(key: key);
 
   
-  final String title;
+//   final String title;
 
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
+//   @override
+//   _MyHomePageState createState() => _MyHomePageState();
+// }
 
-class _MyHomePageState extends State<MyHomePage> {
+// class _MyHomePageState extends State<MyHomePage> {
   
 
-  @override
-  Widget build(BuildContext context) {
+//   @override
+//   Widget build(BuildContext context) {
    
-    return Scaffold(
-      appBar: AppBar(
+//     return Scaffold(
+//       appBar: AppBar(
        
-        title: Text(widget.title),
-      ),
-      body: Center(
-       
-        child:Form(
-          child: Column(
+//         title: Text(widget.title),
+//       ),
+//       body: Center(
+    
+//           child: Column(
           
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-              AbsorbPointer
-              (
-                absorbing: true,
-                child: TextFormField
-                (
-                   decoration: InputDecoration(icon:Icon(Icons.person_outline),labelText:'FirstName'),
-                   
-                   
-                ),
-              ),
-              
-               SizedBox(height: 15.0,),
-              Row(
-                 mainAxisAlignment: MainAxisAlignment.center,
-              children:<Widget>
-                [ 
-              TextFormField
-                (
-                   decoration: InputDecoration(icon:Icon(Icons.person_outline),labelText:'LastName'),
-                   enabled: true,
-                   
-                ),
-                IconButton(icon: Icon(Icons.edit), onPressed:null),
-                ],
-              ),
-          ],
-          ),
-          ),
-          ),     
-    );
-  }
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: <Widget>[
+             
+                           
+//           ],
+//           ),
+//           ),
+               
+//     );
+//   }
 
  
-}
+// }

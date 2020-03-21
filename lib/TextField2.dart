@@ -72,8 +72,8 @@ class DisableTextFieldState extends State<DisableTextField1> {
                           child: (_image!=null)?Image.file(
                             _image,
                             fit: BoxFit.fill,
-                          ):Image.network(
-                            "https://images.unsplash.com/photo-1502164980785-f8aa41d53611?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+                          ):Image.asset(
+                            "profile_image.png",
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -95,10 +95,9 @@ class DisableTextFieldState extends State<DisableTextField1> {
                 ],
               ),
               SizedBox(
-                height: 10.0,
+                height: 8.0,
               ),
-              
-                
+                 
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[   
@@ -135,10 +134,8 @@ class DisableTextFieldState extends State<DisableTextField1> {
                     ),
                   ),
 
-
-
                    SizedBox(
-                height: 10.0,
+                height: 8.0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

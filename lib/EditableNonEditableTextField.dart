@@ -6,24 +6,24 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 
-class DisableTextField1 extends StatefulWidget {
+class DisableTextField2 extends StatefulWidget {
   @override
   DisableTextFieldState createState() {
     return new DisableTextFieldState();
   }
 }
 
-class DisableTextFieldState extends State<DisableTextField1> {
+class DisableTextFieldState extends State<DisableTextField2> {
   TextEditingController _firstNameFieldController = TextEditingController();
   TextEditingController _lastNameFieldController = TextEditingController();
   TextEditingController _mobileNoFieldController = TextEditingController();
   TextEditingController _emailIDFieldController = TextEditingController();
-  //bool _isEnabled = false;
-  bool _isEnabled;
+  bool _isEnabled = false;
+  //bool _isEnabled;
   File _image;
 
 
-
+/*
     bool editFirstName(TextEditingController controller)
     {
       if(controller==_firstNameFieldController)
@@ -56,7 +56,7 @@ class DisableTextFieldState extends State<DisableTextField1> {
         });
       }
     }
-
+*/
 
   @override
   Widget build(BuildContext context) {
@@ -71,14 +71,19 @@ class DisableTextFieldState extends State<DisableTextField1> {
     }
 
     Future uploadPic(BuildContext context) async{
-      String fileName = basename(_image.path);
-       StorageReference firebaseStorageRef = FirebaseStorage.instance.ref().child(fileName);
-       StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
-       StorageTaskSnapshot taskSnapshot=await uploadTask.onComplete;
-       setState(() {
-          print("Profile Picture uploaded");
-          Scaffold.of(context).showSnackBar(SnackBar(content: Text('Profile Picture Uploaded')));
-       });
+      // String fileName = basename(_image.path);
+      //  StorageReference firebaseStorageRef = FirebaseStorage.instance.ref().child(fileName);
+      //  StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
+      //  StorageTaskSnapshot taskSnapshot=await uploadTask.onComplete;
+      //  setState(() {
+      //     print("Profile Picture uploaded");
+      //     Scaffold.of(context).showSnackBar(SnackBar(content: Text('Profile Picture Uploaded')));
+      //  });
+
+      _firstNameFieldController.text = "Shankar";
+      _lastNameFieldController.text="Pawar";
+      _mobileNoFieldController.text="7894561230";
+      _emailIDFieldController.text="shankar@gmail.com";
     }
 
 
@@ -86,7 +91,20 @@ class DisableTextFieldState extends State<DisableTextField1> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Disable TextField Example'),
+        title: Text('Profile'),
+        actions: <Widget>[
+    IconButton(
+      icon: Icon(
+        Icons.edit,
+        color: Colors.white,
+      ),
+      onPressed: () {
+        setState(() {
+          _isEnabled = !_isEnabled;
+        });
+      },
+    )
+  ],
       ),
       body:Builder(
         builder: (context) =>  Container(
@@ -135,7 +153,7 @@ class DisableTextFieldState extends State<DisableTextField1> {
                 ],
               ),
               SizedBox(
-                height: 8.0,
+                height: 10.0,
               ),
                  
               Row(
@@ -150,9 +168,10 @@ class DisableTextFieldState extends State<DisableTextField1> {
                             child:TextField(
                                controller: _firstNameFieldController,
                                  //Set this field to enable or disable (true or flase)
-                               //enabled: _isEnabled,
-                               enabled: false,
-                                   decoration: InputDecoration(hintText: "FirstName"),),
+                               enabled: _isEnabled,
+                               //enabled: false,
+                               decoration: InputDecoration(hintText: "FirstName"),),
+                               
                             ),
                             ),
 
@@ -160,6 +179,7 @@ class DisableTextFieldState extends State<DisableTextField1> {
                         ],
                   
                   ),
+                  /*
                   Align(
                     alignment: Alignment.centerRight,
                     child: Container(
@@ -177,10 +197,10 @@ class DisableTextFieldState extends State<DisableTextField1> {
                        ), 
                     ),
                   ),
-                
+                */
                   
                    SizedBox(
-                height: 8.0,
+                height: 10.0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -192,8 +212,8 @@ class DisableTextFieldState extends State<DisableTextField1> {
                             child:TextField(
                                controller: _lastNameFieldController,
                                  //Set this field to enable or disable (true or flase)
-                               //enabled: _isEnabled,
-                               enabled: false,
+                               enabled: _isEnabled,
+                               //enabled: false,
                                    decoration: InputDecoration(hintText: "LastName"),),
                             ),      
                           ),
@@ -201,6 +221,7 @@ class DisableTextFieldState extends State<DisableTextField1> {
                         ],
                   
                   ),
+                  /*
                   Align(
                     alignment: Alignment.centerRight,
                     child: Container(
@@ -216,9 +237,9 @@ class DisableTextFieldState extends State<DisableTextField1> {
                     ),
                   ),
                  
-
+                */
                   SizedBox(
-                height: 5.0,
+                height: 10.0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -230,8 +251,8 @@ class DisableTextFieldState extends State<DisableTextField1> {
                             child:TextField(
                                controller: _mobileNoFieldController,
                                  //Set this field to enable or disable (true or flase)
-                               //enabled: _isEnabled,
-                               enabled:false,
+                               enabled: _isEnabled,
+                               //enabled:false,
                                    decoration: InputDecoration(hintText: "Mobile Number"),),
                             ),      
                           ),
@@ -239,6 +260,7 @@ class DisableTextFieldState extends State<DisableTextField1> {
                         ],
                   
                   ),
+                  /*
                   Align(
                     alignment: Alignment.centerRight,
                     child: Container(
@@ -253,9 +275,9 @@ class DisableTextFieldState extends State<DisableTextField1> {
                        ), 
                     ),
                   ),
-              
+              */
                SizedBox(
-                height: 5.0,
+                height: 10.0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -267,15 +289,17 @@ class DisableTextFieldState extends State<DisableTextField1> {
                             child:TextField(
                                controller: _emailIDFieldController,
                                  //Set this field to enable or disable (true or flase)
-                               //enabled: _isEnabled,
-                               enabled:false,
-                                   decoration: InputDecoration(hintText: "Email ID"),),
+                               enabled: _isEnabled,
+                               //enabled:false,
+                               decoration: InputDecoration(hintText: "Email ID"),),
+                                   
                             ),      
                           ),
                           ),
                         ],
                   
                   ),
+                  /*
                   Align(
                     alignment: Alignment.centerRight,
                     child: Container(
@@ -290,9 +314,9 @@ class DisableTextFieldState extends State<DisableTextField1> {
                        ), 
                     ),
                   ),
-                    
+                    */
                    SizedBox(
-                height: 8.0,
+                height: 10.0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

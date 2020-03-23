@@ -1,3 +1,4 @@
+import 'package:beta_card/EditableNonEditableTextField.dart';
 import 'package:beta_card/EditableTextField.dart';
 import 'package:beta_card/ProfilePage.dart';
 import 'package:beta_card/TextField2.dart';
@@ -13,11 +14,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
        
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.pink,
       ),
      // home: MyHomePage(title: 'Flutter Demo HomePage2'),
      //home: ProfilePage(),
-     home:DisableTextField1(),
+     //home:DisableTextField1(),
+     home:DisableTextField2(),
     );
   }
 }

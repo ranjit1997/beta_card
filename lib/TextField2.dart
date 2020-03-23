@@ -14,9 +14,45 @@ class DisableTextField1 extends StatefulWidget {
 }
 
 class DisableTextFieldState extends State<DisableTextField1> {
-  TextEditingController _textFieldController = TextEditingController();
+  TextEditingController _firstNameFieldController = TextEditingController();
+  TextEditingController _lastNameFieldController = TextEditingController();
+  TextEditingController _mobileNoFieldController = TextEditingController();
+  TextEditingController _emailIDFieldController = TextEditingController();
   bool _isEnabled = false;
   File _image;
+
+
+
+    bool editFirstName(TextEditingController controller)
+    {
+      if(controller==_firstNameFieldController)
+      {
+        setState(() {
+           _isEnabled = !_isEnabled;
+        });
+      }
+      else{
+        setState(() {
+          _isEnabled =false;
+        });
+      }
+    }
+
+     bool editLastName(TextEditingController controller)
+    {
+      if(controller==_lastNameFieldController)
+      {
+        setState(() {
+           _isEnabled = !_isEnabled;
+        });
+      }
+      else{
+        setState(() {
+             _isEnabled= false;
+        });
+      }
+    }
+
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +109,7 @@ class DisableTextFieldState extends State<DisableTextField1> {
                             _image,
                             fit: BoxFit.fill,
                           ):Image.asset(
-                            "profile_image.png",
+                            "images/profile_image.png",
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -100,14 +136,15 @@ class DisableTextFieldState extends State<DisableTextField1> {
                  
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[   
+                children: <Widget>[ 
+                       
                        Expanded(
                             child:Align(
                             alignment: Alignment.centerLeft,
                             child:Padding(
                               padding: EdgeInsets.symmetric(horizontal: 25.0),
                             child:TextField(
-                               controller: _textFieldController,
+                               controller: _firstNameFieldController,
                                  //Set this field to enable or disable (true or flase)
                                enabled: _isEnabled,
                                    decoration: InputDecoration(hintText: "FirstName"),),
@@ -125,15 +162,18 @@ class DisableTextFieldState extends State<DisableTextField1> {
                         FontAwesomeIcons.pen,
                         color: Colors.pink,
                       ), 
-                      onPressed:() => setState(() 
-                      { 
-                        _isEnabled = !_isEnabled;
+                      onPressed:() =>  
+                       
                         
-                      }),
+                       //  _isEnabled = !_isEnabled;
+                          editFirstName(_firstNameFieldController)
+                        
+                      
                        ), 
                     ),
                   ),
-
+                
+                  
                    SizedBox(
                 height: 8.0,
               ),
@@ -145,7 +185,7 @@ class DisableTextFieldState extends State<DisableTextField1> {
                             alignment: Alignment.centerLeft,
                             child:Padding(padding: EdgeInsets.symmetric(horizontal: 25.0),
                             child:TextField(
-                               controller: _textFieldController,
+                               controller: _lastNameFieldController,
                                  //Set this field to enable or disable (true or flase)
                                enabled: _isEnabled,
                                    decoration: InputDecoration(hintText: "LastName"),),
@@ -162,12 +202,123 @@ class DisableTextFieldState extends State<DisableTextField1> {
                         FontAwesomeIcons.pen,
                         color: Colors.pink,
                       ), 
-                      onPressed:() => setState(() => _isEnabled = !_isEnabled),
+                      onPressed:() =>  
+                         //_isEnabled = !_isEnabled;
+                         editLastName(_lastNameFieldController),
+                         
                        ), 
                     ),
                   ),
+                 
 
+                  SizedBox(
+                height: 5.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[   
+                       Expanded(
+                            child:Align(
+                            alignment: Alignment.centerLeft,
+                            child:Padding(padding: EdgeInsets.symmetric(horizontal: 25.0),
+                            child:TextField(
+                               controller: _mobileNoFieldController,
+                                 //Set this field to enable or disable (true or flase)
+                               enabled: _isEnabled,
+                                   decoration: InputDecoration(hintText: "Mobile Number"),),
+                            ),      
+                          ),
+                          ),
+                        ],
+                  
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Container(
+                      child:IconButton(icon:  Icon(
+                        FontAwesomeIcons.pen,
+                        color: Colors.pink,
+                      ), 
+                      onPressed:() =>  
+                         //_isEnabled = !_isEnabled;
+                         //editLastName(_lastNameFieldController),
+                         null,
+                       ), 
+                    ),
+                  ),
               
+               SizedBox(
+                height: 5.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[   
+                       Expanded(
+                            child:Align(
+                            alignment: Alignment.centerLeft,
+                            child:Padding(padding: EdgeInsets.symmetric(horizontal: 25.0),
+                            child:TextField(
+                               controller: _emailIDFieldController,
+                                 //Set this field to enable or disable (true or flase)
+                               enabled: _isEnabled,
+                                   decoration: InputDecoration(hintText: "Email ID"),),
+                            ),      
+                          ),
+                          ),
+                        ],
+                  
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Container(
+                      child:IconButton(icon:  Icon(
+                        FontAwesomeIcons.pen,
+                        color: Colors.pink,
+                      ), 
+                      onPressed:() =>  
+                         //_isEnabled = !_isEnabled;
+                         //editLastName(_lastNameFieldController),
+                         null,
+                       ), 
+                    ),
+                  ),
+                    
+                   SizedBox(
+                height: 8.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  RaisedButton(
+                    color: Colors.pink,
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    elevation: 4.0,
+                    splashColor: Colors.blueGrey,
+                    child: Text(
+                      'Cancel',
+                      style: TextStyle(color: Colors.white, fontSize: 16.0),
+                    ),
+                  ),
+                  RaisedButton(
+                    color: Colors.pink,
+                    onPressed: () {
+                     uploadPic(context);
+                    },
+                                     
+                    elevation: 4.0,
+                    splashColor: Colors.blueGrey,
+                    child: Text(
+                      'Submit',
+                      style: TextStyle(color: Colors.white, fontSize: 16.0),
+                    ),
+                  ),
+              
+                ],
+              )
+
+
 
                 ],
               ),

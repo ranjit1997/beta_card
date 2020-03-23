@@ -1,4 +1,5 @@
 
+import 'package:beta_card/Data_Model/Data_Model_User_Profile.dart';
 import 'package:beta_card/Model/model_User_ID.dart';
 import 'package:beta_card/Model/model_User_Profile.dart';
 import 'package:beta_card/Views/widget_HomePage.dart';
@@ -22,7 +23,7 @@ void UploadStatusImage(BuildContext context,UserProfile userProfileObj) async
 
       // var timeKey = new DateTime.now();//it is unique id for every profile image in storage.
 
-       final StorageUploadTask uploadTask = userProfileImageRef.child(getUserID()+ ".jpg").putFile(userProfileObj.getUserProfileImage());
+       final StorageUploadTask uploadTask = userProfileImageRef.child(user_ID.getUserID()+ ".jpg").putFile(userProfileObj.getUserProfileImage());
 
         var ImageUrl = await(await uploadTask.onComplete).ref.getDownloadURL();
 
@@ -60,7 +61,7 @@ void saveToDatabase(url,userProfileObj)
           "Time":time,
      };
         
-     ref.child("UsersInfo").child(getUserID()).set(data);
+     ref.child("UsersInfo").child(user_ID.getUserID()).set(data);
 }
 
 void gotToHomePage(context)

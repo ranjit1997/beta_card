@@ -1,4 +1,5 @@
 
+import 'package:beta_card/Data_Model/Data_Model_User_Profile.dart';
 import 'package:beta_card/Model/model_User_Profile.dart';
 import 'package:beta_card/Utility/DBWebService_FireBase_User_Profile_Data.dart';
 import 'package:beta_card/Views/widget_LoginRegister.dart';
@@ -18,10 +19,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
 
   final formKey = new GlobalKey<FormState>();
 
-  UserProfile userProfileObj = new UserProfile(); //model class Object.
-  UploadUserData userDataObj = new UploadUserData(); // BLOC class Object.
-  LoginRegisterPage loginRegPage = new LoginRegisterPage();
-  
+ 
  // File sampleImage;
  
   Future getImage() async

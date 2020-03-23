@@ -1,5 +1,5 @@
 
-import 'package:beta_card/Model/model_User_ID.dart';
+import 'package:beta_card/Data_Model/Data_Model_User_Profile.dart';
 import 'package:beta_card/Utility/DBWebService_FireBase_Authentication.dart';
 import 'package:beta_card/Views/widget_DialogBox.dart';
 import 'package:flutter/material.dart';
@@ -30,8 +30,8 @@ enum FormType
 }
 class _LoginRegisterState extends State<LoginRegisterPage>{
 
-  DialogBox dialogBox = new DialogBox();
-  //UserID userID = new UserID();
+ // DialogBox dialogBox = new DialogBox();
+  
 
   final formKey = new GlobalKey<FormState>();
   FormType _formType = FormType.login;
@@ -64,10 +64,10 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
               {
                 String userId = await widget.auth.SignIn(_email, _password);
                 dialogBox.information(context,"Congrulations","You are loggedIn successfully");
-                setUserID(userId);
+                user_ID.setUserID(userId);
                 
                 //print("login userId="+userId);
-                print(getUserID());
+                print(user_ID.getUserID());
               
               }
               else

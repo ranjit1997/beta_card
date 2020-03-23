@@ -1,5 +1,5 @@
 
-  
+  class UserID{
   String _userId;
   
   void setUserID(String uid)
@@ -10,4 +10,4 @@
   {
     return _userId;
   }
-
+  }

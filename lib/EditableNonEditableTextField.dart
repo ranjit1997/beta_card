@@ -92,19 +92,27 @@ class DisableTextFieldState extends State<DisableTextField2> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Profile'),
-        actions: <Widget>[
-    IconButton(
-      icon: Icon(
-        Icons.edit,
-        color: Colors.white,
-      ),
-      onPressed: () {
-        setState(() {
-          _isEnabled = !_isEnabled;
-        });
-      },
-    )
-  ],
+        actions: <Widget>
+         [
+           Container(
+               margin:const EdgeInsets.only(left:100.0),
+               child: IconButton
+                (
+                   icon: Icon
+                  (
+                   _isEnabled ? IconData(58826,fontFamily: 'MaterialIcons'):IconData(57680,fontFamily: 'MaterialIcons')
+                  ),
+                  onPressed: (){
+                           setState(() {
+                                      _isEnabled = !_isEnabled;
+         
+                                   }); 
+                                },
+                  //shape: CircleBorder(),
+                  color: Colors.white,
+               ),
+            ),
+         ],
       ),
       body:Builder(
         builder: (context) =>  Container(
@@ -179,25 +187,7 @@ class DisableTextFieldState extends State<DisableTextField2> {
                         ],
                   
                   ),
-                  /*
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Container(
-                      child:IconButton(icon:  Icon(
-                        FontAwesomeIcons.pen,
-                        color: Colors.pink,
-                      ), 
-                      onPressed:() =>  
-                       
-                        
-                       //  _isEnabled = !_isEnabled;
-                          editFirstName(_firstNameFieldController)
-                        
-                      
-                       ), 
-                    ),
-                  ),
-                */
+                 
                   
                    SizedBox(
                 height: 10.0,
@@ -221,23 +211,7 @@ class DisableTextFieldState extends State<DisableTextField2> {
                         ],
                   
                   ),
-                  /*
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Container(
-                      child:IconButton(icon:  Icon(
-                        FontAwesomeIcons.pen,
-                        color: Colors.pink,
-                      ), 
-                      onPressed:() =>  
-                         //_isEnabled = !_isEnabled;
-                         editLastName(_lastNameFieldController),
-                         
-                       ), 
-                    ),
-                  ),
                  
-                */
                   SizedBox(
                 height: 10.0,
               ),
@@ -260,22 +234,7 @@ class DisableTextFieldState extends State<DisableTextField2> {
                         ],
                   
                   ),
-                  /*
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Container(
-                      child:IconButton(icon:  Icon(
-                        FontAwesomeIcons.pen,
-                        color: Colors.pink,
-                      ), 
-                      onPressed:() =>  
-                         //_isEnabled = !_isEnabled;
-                         //editLastName(_lastNameFieldController),
-                         null,
-                       ), 
-                    ),
-                  ),
-              */
+                 
                SizedBox(
                 height: 10.0,
               ),
@@ -299,22 +258,7 @@ class DisableTextFieldState extends State<DisableTextField2> {
                         ],
                   
                   ),
-                  /*
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Container(
-                      child:IconButton(icon:  Icon(
-                        FontAwesomeIcons.pen,
-                        color: Colors.pink,
-                      ), 
-                      onPressed:() =>  
-                         //_isEnabled = !_isEnabled;
-                         //editLastName(_lastNameFieldController),
-                         null,
-                       ), 
-                    ),
-                  ),
-                    */
+                 
                    SizedBox(
                 height: 10.0,
               ),

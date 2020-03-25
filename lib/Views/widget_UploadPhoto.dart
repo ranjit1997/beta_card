@@ -1,3 +1,4 @@
+// This File also contain code for setting profile.
 
 import 'package:beta_card/Data_Model/Data_Model_User_Profile.dart';
 import 'package:beta_card/Model/model_User_Profile.dart';
@@ -42,6 +43,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
     if(form.validate())
     {
       form.save();
+      form.reset();
       return true;
     }
     else
@@ -154,13 +156,13 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
              child: Text("Update Profile"),
              textColor: Colors.white,
              color: Colors.pink,
-             onPressed:()=>
+             onPressed:()
              { 
                if(validateAndSave())
                {
                  
-                 userDataObj.UploadStatusImage(context,userProfileObj) //passing model object in BLOC method.
-               }, 
+                 userDataObj.UploadStatusImage(context,userProfileObj); //passing model object in BLOC method.
+               } 
              },
            ),
          ],

@@ -1,5 +1,6 @@
 
 import 'package:beta_card/Utility/DBWebService_FireBase_Authentication.dart';
+import 'package:beta_card/Views/widget_SetProfile.dart';
 import 'package:beta_card/Views/widget_UploadPhoto.dart';
 import 'package:flutter/material.dart';
 
@@ -68,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: Colors.white, 
                       onPressed:()=> logOutUser(),
                       ),
-
+                 /*
                     IconButton(
                       icon: Icon(Icons.photo_camera),
                       iconSize: 40,
@@ -85,12 +86,22 @@ class _MyHomePageState extends State<MyHomePage> {
                                 );
                       }
                       ),
-
+                    */
                     IconButton(
                       icon: Icon(Icons.settings),
                       iconSize: 40,
                       color: Colors.white, 
-                      onPressed:null,
+                      onPressed:()
+                      {
+                         Navigator.push
+                                (
+                                  context, 
+                                  MaterialPageRoute(builder: (context)
+                                  {
+                                    return new SetUserProfile();
+                                  })
+                                );
+                      },
                       )
                 ],
               ),

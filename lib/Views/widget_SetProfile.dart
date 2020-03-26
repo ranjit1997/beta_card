@@ -47,7 +47,6 @@ class _SetUserProfileState extends State<SetUserProfile>
     if(form.validate())
     {
       form.save();
-      form.reset();
       return true;
     }
     else
@@ -63,6 +62,7 @@ class _SetUserProfileState extends State<SetUserProfile>
     return Scaffold(
       appBar: AppBar(
         title: Text('Profile'),
+        backgroundColor: Colors.pink,
         actions: <Widget>
          [
            Container(
@@ -153,7 +153,7 @@ class _SetUserProfileState extends State<SetUserProfile>
                                  //Set this field to enable or disable (true or flase)
                                enabled: _isEnabled,
                                //enabled: false,
-                               decoration: InputDecoration(hintText: "FirstName"),
+                               decoration: InputDecoration(icon:Icon(Icons.person_outline),hintText: "FirstName"),
                                
                                validator: (value)
                                  {
@@ -193,7 +193,7 @@ class _SetUserProfileState extends State<SetUserProfile>
                                  //Set this field to enable or disable (true or flase)
                                enabled: _isEnabled,
                                //enabled: false,
-                               decoration: InputDecoration(hintText: "LastName"),
+                               decoration: InputDecoration(icon:Icon(Icons.person_outline),hintText: "LastName"),
                                
                                validator: (value)
                                  {
@@ -232,7 +232,7 @@ class _SetUserProfileState extends State<SetUserProfile>
                                  //Set this field to enable or disable (true or flase)
                                enabled: _isEnabled,
                                //enabled:false,
-                               decoration: InputDecoration(hintText: "Mobile Number"),
+                               decoration: InputDecoration(icon:Icon(Icons.phone),hintText: "Mobile Number"),
 
                                 validator: (value)
                                  {
@@ -319,8 +319,9 @@ class _SetUserProfileState extends State<SetUserProfile>
                       if(validateAndSave())
                         {
                  
-                           userDataObj.UploadStatusImage(context,userProfileObj); //passing model object in BLOC method.
+                           userDataObj.UploadStatusImage(context); //passing model object in BLOC method.
                         }
+                        
                     },
                                      
                     elevation: 4.0,

@@ -16,7 +16,7 @@ class UploadUserData
 String url;
 
 
-void UploadStatusImage(BuildContext context,UserProfile userProfileObj) async
+void UploadStatusImage(BuildContext context) async
  {
       
       final StorageReference userProfileImageRef = FirebaseStorage.instance.ref().child("Profile Images");

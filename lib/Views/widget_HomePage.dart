@@ -156,7 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
             // Divider widget is used for separating the items or widgets.
-              new Divider(),
+             // new Divider(),
 
 
                new ListTile(
@@ -175,7 +175,31 @@ class _MyHomePageState extends State<MyHomePage> {
                    leading: new Icon(Icons.close),//Icon widget is used to set Icons for particular items.
                    onTap: ()=> Navigator.of(context).pop(),
               ),
-            
+             
+             
+              SizedBox(
+                height: 15.0,
+              ),
+              new Divider(), 
+               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>
+                        [   
+                            Container
+                              (
+                                alignment: Alignment.topLeft,
+                                child: Text("Legal",style: TextStyle(color: Colors.black,fontSize: 13.0),),
+                              ) ,
+
+                               Container
+                              (
+                                alignment: Alignment.topLeft,
+                                child: Text("v1.0.0",style: TextStyle(color: Colors.black,fontSize: 13.0),),
+                              ) ,   
+                        ],
+                  
+                  ),
+              
               ],
           ),
         );

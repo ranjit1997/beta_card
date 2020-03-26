@@ -1,6 +1,5 @@
 
 import 'dart:io';
-
 import 'package:beta_card/Utility/DBWebService_FireBase_Authentication.dart';
 import 'package:beta_card/Views/widget_SetProfile.dart';
 import 'package:flutter/foundation.dart';
@@ -57,7 +56,11 @@ class _MyHomePageState extends State<MyHomePage> {
          
        drawer: navigationDrawer(),
 
-       body: Container() ,
+       body: Container
+             (
+                alignment: Alignment.center,
+                child: Text("MY Home Page",style: TextStyle(color: Colors.black,fontSize: 20.0),),
+             ) ,
 
        bottomNavigationBar: bottomMenuBar(),
     );
@@ -198,7 +201,17 @@ class _MyHomePageState extends State<MyHomePage> {
                       icon: Icon(Icons.home),
                       iconSize: 40,
                       color: Colors.white, 
-                      onPressed:()=> logOutUser(),
+                      onPressed:()
+                      {
+                         Navigator.push
+                                (
+                                  context, 
+                                  MaterialPageRoute(builder: (context)
+                                  {
+                                    return new MyHomePage();
+                                  })
+                                );
+                      },
                       ),
                  
                     IconButton(

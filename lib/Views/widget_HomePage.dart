@@ -89,7 +89,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               //ListTite widget is used to create to items in list view.
               new ListTile(
-                   title: new Text("Settings"),//Text widget is used to define text.
+                   title: new Text("Wallet"),//Text widget is used to define text.
+                   leading:Icon(Icons.account_balance_wallet),
                    //onTap widget is used for providing triggering an event.
                    onTap: () {
                      Navigator.of(context).pop(); // this statement is used to close the drawer.
@@ -98,8 +99,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               
                new ListTile(
-                   title: new Text("Notifications"),
-                   
+                   title: new Text("Gallery Events"),
+                   leading: Icon(Icons.event),
                    onTap: (){
                      Navigator.of(context).pop();
                      Navigator.of(context).pushNamed("/b");
@@ -107,13 +108,49 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
 
                 new ListTile(
-                   title: new Text("Payment method"),
-                   
+                   title: new Text("Support"),
+                   leading: Icon(Icons.help),
                    onTap: (){
                      Navigator.of(context).pop();
                      Navigator.of(context).pushNamed("/c");
                    },
               ),
+              
+               new ListTile(
+                   title: new Text("Edit Profile"),
+                   leading: Icon(Icons.edit),
+                   onTap: (){
+                     Navigator.of(context).pop();
+                     //Navigator.of(context).pushNamed("/c");
+                      Navigator.push
+                                (
+                                  context, 
+                                  MaterialPageRoute(builder: (context)
+                                  {
+                                    return new SetUserProfile();
+                                  })
+                                );
+                   },
+              ),
+
+               new ListTile(
+                   title: new Text("Quiz"),
+                   leading: Icon(Icons.question_answer),
+                   onTap: (){
+                     Navigator.of(context).pop();
+                     Navigator.of(context).pushNamed("/c");
+                   },
+              ),
+              
+               new ListTile(
+                   title: new Text("Search"),
+                   leading: Icon(Icons.search),
+                   onTap: (){
+                     Navigator.of(context).pop();
+                     Navigator.of(context).pushNamed("/c");
+                   },
+              ),
+
 
             // Divider widget is used for separating the items or widgets.
               new Divider(),
@@ -121,17 +158,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
                new ListTile(
                    title: new Text("SignOut"),
-                   
+                   leading: Icon(Icons.lock),
                    onTap: () 
                    {
                      //Navigator.of(context).pop();
-                     exit(0);
+                     //exit(0);
+                     logOutUser();
                    },
               ),
             
                new ListTile(
                    title: new Text("Close"),
-                   trailing: new Icon(Icons.close),//Icon widget is used to set Icons for particular items.
+                   leading: new Icon(Icons.close),//Icon widget is used to set Icons for particular items.
                    onTap: ()=> Navigator.of(context).pop(),
               ),
             
@@ -157,14 +195,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>
                 [
                     IconButton(
-                      icon: Icon(Icons.local_car_wash),
+                      icon: Icon(Icons.home),
                       iconSize: 40,
                       color: Colors.white, 
                       onPressed:()=> logOutUser(),
                       ),
-                 /*
+                 
                     IconButton(
-                      icon: Icon(Icons.photo_camera),
+                      icon: Icon(Icons.gif),
                       iconSize: 40,
                       color: Colors.white, 
                       onPressed:()
@@ -174,14 +212,15 @@ class _MyHomePageState extends State<MyHomePage> {
                                   context, 
                                   MaterialPageRoute(builder: (context)
                                   {
-                                    return new UploadPhotoPage();
+                                    //return new UploadPhotoPage();
+                                    return new SetUserProfile();
                                   })
                                 );
                       }
                       ),
-                    */
+                    
                     IconButton(
-                      icon: Icon(Icons.settings),
+                      icon: Icon(Icons.add_shopping_cart),
                       iconSize: 40,
                       color: Colors.white, 
                       onPressed:()

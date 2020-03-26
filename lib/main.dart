@@ -2,7 +2,11 @@
 
 import 'package:beta_card/Mapping.dart';
 import 'package:beta_card/Utility/DBWebService_FireBase_Authentication.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:beta_card/Views/widget_NotificationPage.dart';
+import 'package:beta_card/Views/widget_PaymentPage.dart';
+import 'package:beta_card/Views/widget_SettingPage.dart';
 
 
 void main() 
@@ -19,11 +23,22 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-       
-        primarySwatch: Colors.blue,
+       primarySwatch: Colors.pink,
+       primaryColor: defaultTargetPlatform == TargetPlatform.iOS ? Colors.grey[50] : null
+        
       ),
      
       home: MappingPage(auth: Auth(),),
+      
+      routes: <String,WidgetBuilder>{
+        // When navigating to the "/a" route, build the Settings Page widget.
+        '/a':(BuildContext context) => new SettingPage("Settings Page"),
+         // When navigating to the "/b" route, build the Notification widget. 
+        '/b':(BuildContext context) => new NotificationPage("Notification Page"),
+         // When navigating to the "/c" route, build the Payment Page widget.
+        '/c':(BuildContext context) => new PaymentPage("Payment Page"),
+        
+      },
     );
   }
 }

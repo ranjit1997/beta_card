@@ -45,10 +45,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
    
     return Scaffold(
-      appBar:  AppBar(
-            title: Container(
-                 alignment: Alignment.center,
-                 child: Text("Home Page",style: TextStyle(color: Colors.white,fontSize: 20.0),),
+      appBar:  AppBar
+              (
+               title: Container(
+                        alignment: Alignment.center,
+                        child: Text("Home Page",style: TextStyle(color: Colors.white,fontSize: 20.0),),
                  ),
                  backgroundColor: Colors.pink,
                   //elevation property is used to set elevation to AppBar in Android Device.

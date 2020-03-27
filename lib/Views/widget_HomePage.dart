@@ -1,6 +1,8 @@
 
 import 'dart:io';
 import 'package:beta_card/Utility/DBWebService_FireBase_Authentication.dart';
+import 'package:beta_card/Views/widget_BuyPage.dart';
+import 'package:beta_card/Views/widget_MojoPage.dart';
 import 'package:beta_card/Views/widget_SetProfile.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -227,6 +229,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: Colors.white, 
                       onPressed:()
                       {
+                         Navigator.of(context).pop();
                          Navigator.push
                                 (
                                   context, 
@@ -244,13 +247,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: Colors.white, 
                       onPressed:()
                       { 
+                        Navigator.of(context).pop();
                         Navigator.push
                                 (
                                   context, 
                                   MaterialPageRoute(builder: (context)
                                   {
                                     //return new UploadPhotoPage();
-                                    return new SetUserProfile();
+                                    return new MojoPage();
                                   })
                                 );
                       }
@@ -262,12 +266,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: Colors.white, 
                       onPressed:()
                       {
+                         Navigator.of(context).pop();
                          Navigator.push
                                 (
                                   context, 
                                   MaterialPageRoute(builder: (context)
                                   {
-                                    return new SetUserProfile();
+                                    return new BuyPage();
                                   })
                                 );
                       },

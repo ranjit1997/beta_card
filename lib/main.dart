@@ -4,9 +4,9 @@ import 'package:beta_card/Mapping.dart';
 import 'package:beta_card/Utility/DBWebService_FireBase_Authentication.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:beta_card/Views/widget_NotificationPage.dart';
-import 'package:beta_card/Views/widget_PaymentPage.dart';
-import 'package:beta_card/Views/widget_SettingPage.dart';
+import 'package:beta_card/Views/widget_GalleryEventPage.dart';
+import 'package:beta_card/Views/widget_WalletPage.dart';
+import 'package:beta_card/Views/widget_SupportPage.dart';
 
 
 void main() 
@@ -32,11 +32,11 @@ class MyApp extends StatelessWidget {
       
       routes: <String,WidgetBuilder>{
         // When navigating to the "/a" route, build the Settings Page widget.
-        '/a':(BuildContext context) => new SettingPage("Settings Page"),
+        '/a':(BuildContext context) => new SupportPage(),
          // When navigating to the "/b" route, build the Notification widget. 
-        '/b':(BuildContext context) => new NotificationPage("Notification Page"),
+        '/b':(BuildContext context) => new GalleryEventsPage(),
          // When navigating to the "/c" route, build the Payment Page widget.
-        '/c':(BuildContext context) => new PaymentPage("Payment Page"),
+        '/c':(BuildContext context) => new WalletPage(),
         
       },
     );

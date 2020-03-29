@@ -90,6 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
        body: Container
        (
+         /*
          child: usersInfoList.length==0?Text("No User Info is available"):ListView.builder
          (
            itemCount: usersInfoList.length,
@@ -100,7 +101,23 @@ class _MyHomePageState extends State<MyHomePage> {
              usersInfoList[index].Time);
            }
          ),
-       ) ,
+         */
+        child:usersInfoList.length==0?Text("No User Info is available"): ReorderableListView
+        (
+        onReorder: _onReorder,
+        scrollDirection: Axis.vertical,
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        children: List.generate(
+          usersInfoList.length,
+          (index) {
+           
+            return userInfoWidget(index,Key('$index'),usersInfoList);
+          },
+        ),
+      ),
+    ),
+    
+    
 
        bottomNavigationBar: BottomAppBar
        (
@@ -152,10 +169,25 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-    Widget userInfoWidget(String FirstName,String LastName,int MobileNo,String image,String Date,String Time)
+
+     void _onReorder(int oldIndex, int newIndex) 
+   {
+    setState(
+      () {
+        if (newIndex > oldIndex) {
+          newIndex -= 1;
+        }
+        final UsersInfo item = usersInfoList.removeAt(oldIndex);
+        usersInfoList.insert(newIndex, item);
+      },
+    );
+  }
+
+    Widget userInfoWidget(int index,Key key, List<UsersInfo> usersInfoList)
     {
       return Card
       (
+          key: key,
           elevation: 10.0,
           margin: EdgeInsets.all(15.0),
 
@@ -175,14 +207,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 [
                 Text
                 (
-                  Date,
+                  usersInfoList[index].Date,
                   style: Theme.of(context).textTheme.subtitle,
                   textAlign: TextAlign.center,
                 ),
 
                  Text
                 (
-                  Time,
+                  usersInfoList[index].Time,
                   style: Theme.of(context).textTheme.subtitle,
                   textAlign: TextAlign.center,
                 ),
@@ -190,7 +222,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
 
                 SizedBox(height:10.0),
-                Image.network(image,fit:BoxFit.cover),
+                Image.network(usersInfoList[index].image,fit:BoxFit.cover),
                 
                 SizedBox(height:10.0),
 
@@ -201,14 +233,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 [
                 Text
                 (
-                  FirstName,
+                  usersInfoList[index].FirstName,
                   style: Theme.of(context).textTheme.subhead,
                   textAlign: TextAlign.center,
                 ),
 
                  Text
                 (
-                  LastName,
+                  usersInfoList[index].LastName,
                   style: Theme.of(context).textTheme.subhead,
                   textAlign: TextAlign.center,
                 ),
@@ -221,6 +253,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
       );
     }
+
+    
 }
 
 

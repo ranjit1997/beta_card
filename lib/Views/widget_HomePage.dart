@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
      try
      {
       await widget.auth.signOut();
-      widget.onSignedOut;
+      widget.onSignedOut();
      }
      catch(e)
      {

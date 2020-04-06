@@ -1,5 +1,5 @@
-
-import 'package:beta_card/Views/widget_floating_menu.dart';
+import 'package:beta_card/Views/register_user.dart';
+// import 'package:beta_card/Views/widget_floating_menu.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: new UserProfile(),
+      home: new Register(),
     );
   }
 }

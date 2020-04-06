@@ -1,96 +1,96 @@
 import 'package:flutter/material.dart';
 
 
-class UserProfile extends StatefulWidget {
-  @override
-  _UserProfileState createState() => _UserProfileState();
-}
+const email = '';
+const phone = '';
 
-class _UserProfileState extends State<UserProfile> {
+class UserProfile extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
-  // implement build
-     return Scaffold(
-      // key: scaffoldKey,
-      appBar: AppBar(
-        title: Text(
-          "Profile",
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            //This is circle image
+            CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage('images/ranjeete.jpg'),
+            ),
+            //This is user for divider
+            SizedBox(
+              height:35.0,
+            ),
+            //This is user name text
+            Text(
+              'Ranjeet Kumar',
+              style: TextStyle(
+                fontFamily: 'Source Sans Pro',
+                fontSize: 20.0,
+                color: Colors.teal[50],
+                letterSpacing: 2.5,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            //This is use for divider 
+            SizedBox(
+              height: 20,
+              width: 200,
+              child: Divider(
+                color: Colors.teal.shade700,
+              ),
+            ),
+            //This is use for divider
+            SizedBox(
+              height:20.0,
+            ),
+            //This is email card
+            new Card(
+              color: Colors.white,
+               margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                child: ListTile(
+                 leading: Icon(
+                  Icons.email,
+                 color: Colors.teal,
+                ),
+                title: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                      hintText: 'abc@example.com'
+                   ),
+                ),
+              ),
+            ),
+            //This is phone card
+             new Card(
+              color: Colors.white,
+               margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                child: ListTile(
+                 leading: Icon(
+                  Icons.phone,
+                 color: Colors.teal,
+                ),
+                title: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                      hintText: '+91 8213546478'
+                   ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          // key: formKey,
-          child: Column(
-            children: [
-              new SizedBox(height: 50.0),
-              TextFormField(
-                // initialValue: "",
-                // onSaved: (val) => item.state = val,
-                // validator: (val) => val == "" ? val : null,
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                hintText: 'First Name',
-                contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
-                ),
-              ),
-
-               TextFormField(
-                // initialValue: "",
-                // onSaved: (val) => item.state = val,
-                // validator: (val) => val == "" ? val : null,
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                hintText: 'Last Name',
-                contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
-                ),
-              ),
-
-              TextFormField(
-                // initialValue: "",
-                // onSaved: (val) => item.district = val,
-                // validator: (val) => val == "" ? val : null,
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                hintText: 'Date/Of/Birth',
-                contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
-                ),
-              ),
-
-               TextFormField(
-                // initialValue: "",
-                // onSaved: (val) => item.district = val,
-                // validator: (val) => val == "" ? val : null,
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                hintText: 'Sex',
-                contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
-                ),
-              ),
-
-              RaisedButton(
-                shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24),
-                ),
+       backgroundColor: Colors.teal[200],
+       //This is floating action button
+       floatingActionButton: FloatingActionButton(
                 onPressed: () {
-                  // handleSubmit();
+                  // Add your onPressed code here!
                 },
-                color: Colors.lightBlueAccent,
-                padding: EdgeInsets.all(12),
-                child: Text('Login'),
-              ),
-            ],
-          ),
-        ),
-      ),
-    ); 
+                child: Icon(Icons.create),
+              backgroundColor: Colors.blue,
+             ),
+    );
   }
 }

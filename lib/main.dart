@@ -1,3 +1,4 @@
+import 'package:beta_card/Views/widget_ReorderableListView.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      // home: new UserProfile(),
+      home: ReorderableListView1(title: 'Flutter ReorderableListView Demo '),
     );
   }
 }

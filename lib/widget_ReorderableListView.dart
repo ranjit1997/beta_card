@@ -1,6 +1,6 @@
 //import 'package:beta_card/widget_ListViewCard.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 
 class ReorderableListView1 extends StatefulWidget {
 
@@ -89,9 +89,9 @@ class _ReorderableListViewState extends State<ReorderableListView1> {
       color: Colors.white,
       child: InkWell(
         splashColor: Colors.blue,
-        onTap: () => Fluttertoast.showToast(
-            msg: "Item ${listItems[index]} selected.",
-            toastLength: Toast.LENGTH_SHORT),
+        // onTap: () => Fluttertoast.showToast(
+        //     msg: "Item ${listItems[index]} selected.",
+        //     toastLength: Toast.LENGTH_SHORT),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[

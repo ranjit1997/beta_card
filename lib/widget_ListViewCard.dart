@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 
 class ListViewCard extends StatefulWidget {
   final int index;
@@ -20,9 +20,9 @@ class _ListViewCard extends State<ListViewCard> {
       color: Colors.white,
       child: InkWell(
         splashColor: Colors.blue,
-        onTap: () => Fluttertoast.showToast(
-            msg: "Item ${widget.listItems[widget.index]} selected.",
-            toastLength: Toast.LENGTH_SHORT),
+        // onTap: () => Fluttertoast.showToast(
+        //     msg: "Item ${widget.listItems[widget.index]} selected.",
+        //     toastLength: Toast.LENGTH_SHORT),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[

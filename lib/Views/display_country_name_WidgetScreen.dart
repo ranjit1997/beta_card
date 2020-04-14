@@ -126,11 +126,17 @@ class _ShowStateState extends State<ShowCountry> {
       elevation: 10.0,
       child: InkWell(
       onTap: () {
-        Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => ShowCity(),
-              ),
-        );
+        if(country_name==country_name){
+          //  print(country_name);
+          DisplayCity(country_name);
+        }else{
+           print('not here');
+        }
+        // Navigator.push(
+        //       context,
+        //       MaterialPageRoute(builder: (context) => ShowCity(),
+        //       ),
+        // );
       },
       child: new Container(
         padding: new EdgeInsets.all(20.0),

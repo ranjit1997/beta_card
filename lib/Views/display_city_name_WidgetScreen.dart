@@ -193,7 +193,7 @@ class _ShowStateState extends State<ShowCity> {
                 )),
     );
   }
-
+ 
   Widget UI(String city_name) {
     return new Card(
       elevation: 10.0,
@@ -209,5 +209,9 @@ class _ShowStateState extends State<ShowCity> {
         ),
       ),
     );
+  }
+
+  void DisplayCity(String country){
+    
   }
 }

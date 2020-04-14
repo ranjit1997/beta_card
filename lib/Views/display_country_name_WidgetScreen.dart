@@ -61,6 +61,7 @@
 //   }
 // }
 import 'package:beta_card/Model/model_country_name.dart';
+import 'package:beta_card/Views/display_city_name_WidgetScreen.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
@@ -123,6 +124,14 @@ class _ShowStateState extends State<ShowCountry> {
   Widget UI(String country_name) {
     return new Card(
       elevation: 10.0,
+      child: InkWell(
+      onTap: () {
+        Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ShowCity(),
+              ),
+        );
+      },
       child: new Container(
         padding: new EdgeInsets.all(20.0),
         child: new Column(
@@ -131,11 +140,10 @@ class _ShowStateState extends State<ShowCountry> {
             new Text('Country_Name : $country_name',style: Theme.of(context).textTheme.title,),
             // new Text('Profession : $profession'),
             // new Text('Message : $message'),
-            
           ],
         ),
       ),
-      
+      ),
     );
   }
 }
